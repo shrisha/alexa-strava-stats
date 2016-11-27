@@ -68,7 +68,7 @@ StravaStatsSkill.prototype.intentHandlers = {
         getStats(session,data.id,function(body){
           var data = JSON.parse(body);
           // var speechOutput = "Hello " + session.attributes.straveAtheleteFullname + ". Your strava athelete ID is " + session.attributes.stravaAtheleteId;
-          var speechOutput = "You've run "+data.all_run_totals.distance+" miles.";
+          var speechOutput = "You've run "+(data.all_run_totals.distance * 0.00062137)+" miles.";
           response.tellWithCard(speechOutput, "Get Strava Stats", speechOutput);
         }, function() {
           response.tellWithLinkAccount(needsLinking);
