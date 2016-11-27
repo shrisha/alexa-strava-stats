@@ -1,0 +1,24 @@
+{
+  "name": "alexa-strava-stats",
+  "version": "1.0.0",
+  "description": "Alex skill for Strava Stats",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shrisha/alexa-strava-stats.git"
+  },
+  "keywords": [
+    "alexa",
+    "strava",
+    "echo"
+  ],
+  "author": "Shrisha Radhakrishna",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/shrisha/alexa-strava-stats/issues"
+  },
+  "homepage": "https://github.com/shrisha/alexa-strava-stats#readme"
+}
