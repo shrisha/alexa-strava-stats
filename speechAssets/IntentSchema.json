@@ -1,0 +1,21 @@
+{
+  "intents": [
+    {
+      "intent": "GetStats",
+      "slots": [
+        {
+          "name": "stat",
+          "type": "LIST_OF_STATS"
+        }      ]
+    },
+    {
+      "intent": "AMAZON.HelpIntent"
+    },
+    {
+      "intent": "AMAZON.CancelIntent"
+    },
+    {
+      "intent": "AMAZON.StopIntent"
+    }
+  ]
+}
