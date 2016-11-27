@@ -41,8 +41,8 @@ StravaStatsSkill.prototype.eventHandlers.onSessionStarted = function(sessionStar
 
 StravaStatsSkill.prototype.eventHandlers.onLaunch = function(launchRequest, session, response) {
     console.log("StravaStatsSkill onLaunch requestId: " + launchRequest.requestId + ", sessionId: " + session.sessionId + ", accessToken: " + session.user.accessToken);
-    var speechOutput = "Welcome to Mother Goose for Nest. I can help you control one or more Nest thermostats. Try asking Status, or Set Upstairs to 65. How can I help you?";
-    var repromptText = "Welcome to Mother Goose for Nest. I can help you control one or more Nest thermostats. Try asking Status, or Set Upstairs to 65. How can I help you?";
+    var speechOutput = "Welcome to Strava Stats. How can I help you?";
+    var repromptText = speechOutput;
     response.ask(speechOutput, repromptText);
 };
 
