@@ -67,8 +67,27 @@ StravaStatsSkill.prototype.intentHandlers = {
         var data = JSON.parse(body);
         getStats(session,data.id,function(body){
           var data = JSON.parse(body);
+          var statInPayload = intent.slots.stat;
+          var stat;
+          if(statInPayload && statInPayload.value){
+            stat=statInPayload.value;
+          }
+
+          var totalMiles = Math.round(data.all_run_totals.distance*0.00062137*10)/10;
+          var movingTimeInSeconds = data.all_run_totals.moving_time;
+          var metersPerSecond = data.all_run_totals.distance / movingTimeInSeconds;
+          var minutesPerMile = 26.8224 / metersPerSecond;
+          var secondsPartOfPace = Math.round((minutesPerMile % 1)*60);
+          var minuetesPartOfPace = Math.floor(minutesPerMile);
           // var speechOutput = "Hello " + session.attributes.straveAtheleteFullname + ". Your strava athelete ID is " + session.attributes.stravaAtheleteId;
-          var speechOutput = "You've run "+(data.all_run_totals.distance * 0.00062137)+" miles.";
+          var speechOutput = "";
+          if(!stat){
+            speechOutput = "You've run a total of "+totalMiles+" miles.";
+          }
+          else if(stat=='average pace'){
+            speechOutput = "You've run a total "+totalMiles+" miles at an average pace of "
+            + minuetesPartOfPace +" minutes "+secondsPartOfPace+" seconds per mile";
+          }
           response.tellWithCard(speechOutput, "Get Strava Stats", speechOutput);
         }, function() {
           response.tellWithLinkAccount(needsLinking);

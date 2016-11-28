@@ -1,7 +1,7 @@
 {
   "intents": [
     {
-      "intent": "GetStats",
+      "intent": "StatusIntent",
       "slots": [
         {
           "name": "stat",
